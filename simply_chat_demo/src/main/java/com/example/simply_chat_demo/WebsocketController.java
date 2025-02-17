@@ -18,7 +18,7 @@ public class WebsocketController {
 
     @MessageMapping("/message") //bind this to the /app/messages route
     
-    public void handleMessage(com.example.simply_chat_demo.Message message) {
+    public void handleMessage(Message message) {
         System.out.println("Received message from user: "+ message.getUser() + ": "+ message.getMessage());
         messagingTemplate.convertAndSend("/topic/messages", message);
         System.out.println("Send message to /topic/messages: "+ message.getUser() + ": " + message.getMessage());
